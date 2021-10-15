@@ -26,8 +26,17 @@
             </li>
             <li class="dropdown"><a href="#"><i class="icon-organization mr-1"></i> Data</a>
                 <ul>
-                    <li><a href="<?= base_url('MyData')?>"><i class="icon-user"></i> Data Kamu</a></li>
+                    <li><a href="<?= base_url('MyData') ?>"><i class="icon-user"></i> Data Kamu</a></li>
                     <li><a href="<?= base_url('MyCat' . '/' . $id_user) ?>"><i class="icon-list"></i> Data Kucing Kamu</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#"><i class="icon-logout mr-1"></i> Logout</a>
+                <ul>
+                    <li>
+                        <a href="<?= base_url('Logout') ?>" class="text-danger">
+                            <i class="icon-logout"></i> Logout
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

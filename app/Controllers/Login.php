@@ -23,7 +23,6 @@ class Login extends BaseController
 	{
 
 		$session = session();
-		// $model = new UserModel();
 		$username = $this->request->getVar('username');
 		$password = $this->request->getVar('password');
 		$data = $this->loginModel->where('username', $username)->first();
@@ -32,30 +31,29 @@ class Login extends BaseController
 			// $verify_pass = password_verify($password, $pass);
 			if ($password == $pass) {
 				$ses_data = [
-					'id_user'       => $data['id_user'],
-					'username'     => $data['username'],
-					'fullname'    => $data['fullname'],
-					'email'    => $data['email'],
-					'mobile'    => $data['mobile'],
-					// 'logged_in'     => TRUE
+					'id_user'	=> $data['id_user'],
+					'username'	=> $data['username'],
+					'fullname'	=> $data['fullname'],
+					'email'		=> $data['email'],
+					'mobile'	=> $data['mobile'],
+					'logged_in'	=> TRUE
 				];
 				$session->set($ses_data);
 				return redirect()->to(base_url('Home'));
 			} else {
-				$session->setFlashdata('gagal', 'Wrong Password');
+				$session->setFlashdata('gagal', 'Password Kamu Salah');
 				return redirect()->to('/');
 			}
 		} else {
-			$session->setFlashdata('gagal', 'Email not Found');
+			$session->setFlashdata('gagal', 'Username Kamu Salah');
 			return redirect()->to('/');
 		}
 	}
 
 	public function logout()
 	{
-		session()->remove('username');
-		session()->remove('fullname');
-
+		$session = session();
+		$session->destroy();
 		session()->setFlashdata('sukses', 'Anda telah berhasil logout');
 		return redirect()->to(base_url('/'));
 	}
