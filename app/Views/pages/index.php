@@ -34,78 +34,7 @@
                                     <img class="card-img-center rounded-0" src="<?= base_url('public/dist/images/recycling-bin-green.png') ?>">
                                 </div>
                                 <div class="content my-3">
-                                    <?php foreach ($sampah_organik->getResult() as $organik) {
-                                        $tinggi_organik = $organik->tinggi;
-                                        $metana_organik = $organik->metana;
-                                        $status_organik = $organik->status;
-                                    }
-                                    if ($tinggi_organik != 0) { ?>
-                                        <p class="mb-0 font-w-800 tx-s-12">Ketinggian Sampah : <?= $tinggi_organik ?> cm </p>
-                                    <?php } else if($tinggi_organik == 0) { ?>
-                                        <p class="mb-0 font-w-800 tx-s-12">Ketinggian Sampah : 0 cm </p>
-                                    <?php } ?>
-
-                                    <?php if ($metana_organik != 0) { ?>
-                                        <p class="mb-0 font-w-800 tx-s-12">Kadar Gas Metana : <?= $metana_organik ?> ppm </p>
-                                    <?php } else if($metana_organik == 0) { ?>
-                                        <p class="mb-0 font-w-800 tx-s-12">Kadar Gas Metana : 0 ppm </p>
-                                    <?php } ?>
                                 </div>
-                                <?php if ($status_organik == 'sangataman') { ?>
-                                    <div class="card bg-success my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : SANGAT AMAN </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_organik == 'aman1') { ?>
-                                    <div class="card bg-primary my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : AMAN </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_organik == 'warning') { ?>
-                                    <div class="card bg-warning my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : WARNING </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_organik == 'penuh1') { ?>
-                                    <div class="card bg-danger my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : PENUH </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_organik == '') { ?>
-                                    <div class="card bg-light my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title">STATUS : KOSONG </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -122,93 +51,13 @@
                                 <img class="card-img-center rounded-0" src="<?= base_url('public/dist/images/recycling-bin-yellow.png') ?>">
                             </div>
                             <div class="content my-3">
-                                <?php foreach ($sampah_anorganik->getResult() as $anorganik) {
-                                    $tinggi_anorganik = $anorganik->tinggi;
-                                    $metana_anorganik = $anorganik->metana;
-                                    $status_anorganik = $anorganik->status;
-                                }
-                                if ($tinggi_anorganik != 0) { ?>
-                                    <p class="mb-0 font-w-800 tx-s-12">Ketinggian Sampah : <?= $tinggi_anorganik ?> cm </p>
-                                <?php } else { ?>
-                                    <p class="mb-0 font-w-800 tx-s-12">Ketinggian Sampah : cm </p>
-                                <?php } ?>
-
-                                <?php if ($metana_anorganik != 0) { ?>
-                                    <p class="mb-0 font-w-800 tx-s-12">Kadar Gas Metana : <?= $metana_anorganik ?> ppm </p>
-                                <?php } else { ?>
-                                    <p class="mb-0 font-w-800 tx-s-12">Kadar Gas Metana : ppm </p>
-                                <?php } ?>
                             </div>
-                            <?php if ($status_anorganik == 'sangataman') { ?>
-                                    <div class="card bg-success my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : SANGAT AMAN </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_anorganik == 'aman1') { ?>
-                                    <div class="card bg-primary my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : AMAN </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_anorganik == 'warning') { ?>
-                                    <div class="card bg-warning my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : WARNING </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_anorganik == 'penuh1') { ?>
-                                    <div class="card bg-danger my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title text-white">STATUS : PENUH </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($status_anorganik == '') { ?>
-                                    <div class="card bg-light my-6 text-left">
-                                        <div class="card-body">
-                                            <div class="content my-3">
-                                                <div class="card-liner-content text-center">
-                                                    <h2 class="card-liner-title">STATUS : KOSONG </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- END: Card DATA-->
         </div>
-        <!-- END: Card DATA-->
     </div>
 </main>
 <?= $this->endSection(); ?>
-<!-- <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#div_refresh").load("index.php");
-        setInterval(function() {
-            $("#div_refresh").load("index.php");
-        }, 1000);
-    });
-</script> -->

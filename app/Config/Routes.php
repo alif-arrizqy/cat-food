@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Login');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -31,7 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Main::index');
+// Login
+$routes->get('/', 'Login::index');
+
+// User
+$routes->get('/Home', 'Main::index', ['filter' => 'auth']);
 $routes->get('/Main/save_sampah_organik/(:segment)/(:segment)', 'Pages::save_sampah_organik/$1/$2/$3');
 
 /*

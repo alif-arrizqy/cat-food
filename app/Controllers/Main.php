@@ -17,14 +17,7 @@ class Main extends BaseController
 
 	public function index()
 	{
-		// $date = time();
-		// $bulan = date("m", $date);
-		// $data['kwh'] = $this->mainModel->kwh_bulan($bulan);
-		// $data['jumlah'] = $this->mainModel->biaya_bulan($bulan);
-		// $data['token'] = $this->mainModel->getDataToken();
-		$data['sampah_organik'] = $this->mainModel->get_sampah_organik();
-		$data['sampah_anorganik'] = $this->mainModel->get_sampah_anorganik();
-		return view('pages/index', $data);
+		return view('pages/index');
 	}
 
 	public function save_sampah_organik($tinggi, $metana, $status)
