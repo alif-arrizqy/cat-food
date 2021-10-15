@@ -37,7 +37,7 @@ $routes->get('/', 'Login::index');
 // User
 $routes->get('Home', 'Main::index', ['filter' => 'auth']);
 $routes->get('MyData', 'Main::my_data', ['filter' => 'auth']);
-$routes->get('MyCat', 'Main::my_cat', ['filter' => 'auth']);
+$routes->get('MyCat/(:segment)', 'Main::my_cat/$1', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

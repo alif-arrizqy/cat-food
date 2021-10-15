@@ -18,7 +18,7 @@ class mainModel extends Model
     
     public function MyCat($id_user)
     {
-        $query = $this->db->query("SELECT * FROM cats WHERE id_user = '$id_user'");
+        $query = $this->db->query("SELECT * FROM cats WHERE id_user = '$id_user'")->getResultArray();
         return $query;
     }
 }

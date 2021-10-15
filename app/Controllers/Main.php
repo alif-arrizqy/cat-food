@@ -41,7 +41,7 @@ class Main extends BaseController
 			'mobile' => $mobile,
 		];
 		$this->mainModel->EditUser($kirimdata);
-		session()->setFlashData('sukses', 'Data berhasil disimpan');
+		session()->setFlashData('sukses', 'Data Berhasil Di Simpan');
 		return redirect()->to('MyData');
 	}
 
@@ -50,6 +50,11 @@ class Main extends BaseController
 	public function my_cat($id_user)
 	{
 		$data_cat['data_cat'] = $this->mainModel->MyCat($id_user);
-		return view('pages/my_data', $data_cat);
+		return view('pages/my_cat', $data_cat);
+	}
+
+	public function add_cat($id_user)
+	{
+		
 	}
 }

@@ -34,10 +34,9 @@
                     <?php } ?>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="" class="display table dataTable table-striped table-bordered">
+                            <table id="example" class="display table dataTable table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>Nama Lengkap</th>
                                         <th>Username</th>
                                         <th>Email</th>
@@ -47,7 +46,6 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
                                         <td><?= $data_user->fullname ?></td>
                                         <td><?= $data_user->username ?></td>
                                         <td><?= $data_user->email ?></td>
@@ -60,6 +58,7 @@
                                             </center>
                                         </td>
                                     </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -101,8 +100,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </div>
             <?php echo form_close() ?>
         </div>
