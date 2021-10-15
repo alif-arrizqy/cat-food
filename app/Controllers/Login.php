@@ -40,7 +40,7 @@ class Login extends BaseController
 					// 'logged_in'     => TRUE
 				];
 				$session->set($ses_data);
-				return redirect()->to(base_url('/Home'));
+				return redirect()->to(base_url('Home'));
 			} else {
 				$session->setFlashdata('gagal', 'Wrong Password');
 				return redirect()->to('/');

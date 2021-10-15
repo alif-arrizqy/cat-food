@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 
 // User
-$routes->get('/Home', 'Main::index', ['filter' => 'auth']);
+$routes->get('Home', 'Main::index', ['filter' => 'auth']);
 $routes->get('/Main/save_sampah_organik/(:segment)/(:segment)', 'Pages::save_sampah_organik/$1/$2/$3');
 
 /*

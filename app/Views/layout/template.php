@@ -2,8 +2,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Smart Dustbin</title>
-    <link rel="shortcut icon" href="<?= base_url('public/dist/images/trash32.png') ?>" />
+    <title>Si Kucing</title>
+    <link rel="shortcut icon" href="<?= base_url('public/dist/images/cat.png') ?>" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- CSS -->
