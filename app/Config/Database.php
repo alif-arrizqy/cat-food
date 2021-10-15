@@ -32,6 +32,12 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
+		// =========== hosting ===============
+		// 'hostname' => 'localhost',
+		// 'username' => 'projec50_cat_food',
+		// 'password' => 'cat_food123',
+		// 'database' => 'projec50_cat_food',
+		// =========== local =============
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
@@ -85,8 +91,7 @@ class Database extends Config
 		// Ensure that we always set the database group to 'tests' if
 		// we are currently running an automated test suite, so that
 		// we don't overwrite live data on accident.
-		if (ENVIRONMENT === 'testing')
-		{
+		if (ENVIRONMENT === 'testing') {
 			$this->defaultGroup = 'tests';
 		}
 	}
