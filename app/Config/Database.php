@@ -32,12 +32,6 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		// =========== hosting ===============
-		// 'hostname' => 'localhost',
-		// 'username' => 'projec50_cat_food',
-		// 'password' => 'cat_food123',
-		// 'database' => 'projec50_cat_food',
-		// =========== local =============
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
