@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg  p-0">
             <div class="navbar-header  h-100 h4 mb-0 align-self-center logo-bar text-left">
                 <a href="<?= base_url('Home') ?>" class="horizontal-logo text-left">
-                    <img src="<?= base_url('public/dist/images/cat.png') ?>" style="width: 30px;" >
+                    <img src="<?= base_url('public/dist/images/cat.png') ?>" style="width: 30px;">
                     <span class="h6 font-weight-bold align-self-center mb-0 ml-auto">Si Kucing</span>
                 </a>
             </div>
@@ -14,36 +14,24 @@
         </nav>
     </div>
 </div>
-
-<!-- Start - Sidebar Menu -->
+<?php $id_user = session()->get('id_user') ?>
 <div class="sidebar">
     <div class="site-width">
         <!-- START: Menu-->
         <ul id="side-menu" class="sidebar-menu">
             <li class="dropdown active"><a href="#"><i class="icon-home mr-1"></i> Dashboard</a>
                 <ul>
-                    <li class=""><a href="<?= base_url('/Home') ?>"><i class="icon-home"></i> Dashboard</a></li>
+                    <li class=""><a href="<?= base_url('Home') ?>"><i class="icon-home"></i> Dashboard</a></li>
                 </ul>
             </li>
             <li class="dropdown"><a href="#"><i class="icon-organization mr-1"></i> Data</a>
                 <ul>
-                    <li><a href="<?= base_url('#') ?>"><i class="icon-user"></i> Data Kamu</a></li>
-                    <li><a href="<?= base_url('#') ?>"><i class="icon-list"></i> Data Kucing Kamu</a></li>
-                </ul>
-            </li>
-            <li class="dropdown active"><a href="#"><i class="icon-notebook mr-1"></i> Laporan</a>
-                <ul>
-                    <li><a href="<?= base_url('#') ?>"><i class="icon-doc"></i> Lap. Sampah Organik</a></li>
-                    <li><a href="<?= base_url('#') ?>"><i class="icon-doc"></i> Lap. Sampah Anorganik</a></li>
+                    <li><a href="<?= base_url('MyData')?>"><i class="icon-user"></i> Data Kamu</a></li>
+                    <li><a href="<?= base_url('MyCat' . '/' . $id_user) ?>"><i class="icon-list"></i> Data Kucing Kamu</a></li>
                 </ul>
             </li>
         </ul>
         <!-- END: Menu-->
-        <ol class="breadcrumb bg-transparent align-self-center m-0 p-0 ml-auto">
-            <li class="breadcrumb-item"><a href="#">Application</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
     </div>
 </div>
 <!-- End - Sidebar Menu -->
-

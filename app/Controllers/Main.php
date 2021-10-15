@@ -20,15 +20,36 @@ class Main extends BaseController
 		return view('pages/index');
 	}
 
-	public function save_sampah_organik($tinggi, $metana, $status)
+	public function my_data()
 	{
-		$date = time();
-		$kirimdata['tinggi'] = $tinggi;
-		$kirimdata['metana'] = $metana;
-		$kirimdata['status'] = $status;
-		$kirimdata['bulan'] = date("m", $date);
-		// $kirimdata['jam'] = date("h:i:sa");
-		$this->mainModel->add_sampah_organik($kirimdata);
-		return redirect()->to('/');
+		$data_user['data_user'] = $this->mainModel->MyProfile()->getRow();
+		return view('pages/my_data', $data_user);
+	}
+
+	public function edit_user($id_user)
+	{
+		$username = $this->request->getPost('username');
+		$fullname = $this->request->getPost('fullname');
+		$email = $this->request->getPost('email');
+		$mobile = $this->request->getPost('mobile');
+
+		$kirimdata = [
+			'id_user' => $id_user,
+			'username' => $username,
+			'fullname' => $fullname,
+			'email' => $email,
+			'mobile' => $mobile,
+		];
+		$this->mainModel->EditUser($kirimdata);
+		session()->setFlashData('sukses', 'Data berhasil disimpan');
+		return redirect()->to('MyData');
+	}
+
+
+	// ================ My Cat =========================
+	public function my_cat($id_user)
+	{
+		$data_cat['data_cat'] = $this->mainModel->MyCat($id_user);
+		return view('pages/my_data', $data_cat);
 	}
 }

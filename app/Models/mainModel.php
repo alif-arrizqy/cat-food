@@ -6,22 +6,19 @@ use CodeIgniter\Model;
 
 class mainModel extends Model
 {
-    function get_sampah_organik()
+    public function MyProfile()
     {
-        $query = $this->db->query("SELECT * FROM sampah_organik ORDER BY id DESC LIMIT 1");
-        return $query;
+        return  $this->db->table('users')->where('id_user', session()->get('id_user'))->get();
     }
-
-    function get_sampah_anorganik()
+    
+    public function EditUser($kirimdata)
     {
-        $query = $this->db->query("SELECT * FROM sampah_anorganik ORDER BY id DESC LIMIT 1");
-        return $query;
+        $this->db->table('users')->where('id_user', $kirimdata['id_user'])->update($kirimdata);
     }
-
-
-    function add_sampah_organik($kirimdata)
+    
+    public function MyCat($id_user)
     {
-        $query = $this->db->table('sampah_organik')->insert($kirimdata);
+        $query = $this->db->query("SELECT * FROM cats WHERE id_user = '$id_user'");
         return $query;
     }
 }
