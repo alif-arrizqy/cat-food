@@ -21,4 +21,10 @@ class mainModel extends Model
         $query = $this->db->query("SELECT * FROM cats WHERE id_user = '$id_user'")->getResultArray();
         return $query;
     }
+
+    public function CreateCatData($kirimdata)
+    {
+        $query = $this->db->table('cats')->insert($kirimdata);
+        return $query;
+    }
 }

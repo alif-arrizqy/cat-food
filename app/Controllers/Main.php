@@ -5,6 +5,7 @@ namespace App\Controllers;
 date_default_timezone_set("Asia/Jakarta");
 
 use App\Models\mainModel;
+use KnnCsv;
 
 class Main extends BaseController
 {
@@ -55,6 +56,33 @@ class Main extends BaseController
 
 	public function add_cat($id_user)
 	{
-		
+		$id_user = $this->request->getPost('id_user');
+		$name = $this->request->getPost('cat_name');
+		$age = $this->request->getPost('age');
+		$weight = $this->request->getPost('weight');
+		// KNN method
+		require('Knn.php');
+		$csvFileName = base_url('public/dist/Dataset/train.csv'); //name of csv file, must containt .csv {required}
+		$predict = [$weight, $age]; //predict [weight, age] {required}
+		$key = 3; //key {optional: default is 3}
+		$inputToCsv = false; //true, so the result will be inputed to csv file as the new sample. {optional: default is false}
+
+		$data = new KnnCsv($csvFileName, $predict, $key, $inputToCsv);
+		$porsi = $data->result;
+		$kirimdata = [
+			'id_user' => $id_user,
+			'cat_name' => $name,
+			'age' => $age,
+			'weight' => $weight,
+			'porsi' => $porsi
+		];
+		$success = $this->mainModel->CreateCatData($kirimdata);
+		if ($success) {
+			session()->setFlashdata('sukses', 'Data kucing kamu tersimpan!');
+			return redirect()->to('Home');
+		} else {
+			session()->setFlashdata('gagal', 'Data kucing kamu gagal tersimpan!');
+			return redirect()->to('Home');
+		}
 	}
 }
