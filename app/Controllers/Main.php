@@ -85,4 +85,9 @@ class Main extends BaseController
 			return redirect()->to('Home');
 		}
 	}
+
+	public function camera()
+	{
+		return view('pages/camera');
+	}
 }
