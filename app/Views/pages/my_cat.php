@@ -21,25 +21,6 @@
                     <div class="card">
                         <div class="card-body d-md-flex text-center">
                             <h5 class="card-title">Data Kucing Kamu</h5>
-                            <!-- <ul class="d-md-flex m-0 pl-0 list-unstyled">
-                                <li class="pill cl-personal py-1 px-2 mr-md-2 text-center my-1">
-                                    Personal
-                                </li>
-
-                                <li class="pill cl-professional py-1 px-2 mr-md-2 text-center my-1">
-                                    Professional
-                                </li>
-                                <li class="pill cl-work py-1 px-2 mr-md-2 text-center my-1">
-                                    Work
-                                </li>
-
-                                <li class="pill cl-home py-1 px-2 mr-md-2 text-center my-1">
-                                    Home
-                                </li>
-                                <li class="pill cl-office py-1 px-2 text-center my-1">
-                                    Office
-                                </li>
-                            </ul> -->
                             <a href="#" class="btn btn-outline-success font-w-600 my-auto text-nowrap ml-auto add-event" data-toggle="modal" data-target="#addevent"><i class="icon-plus"></i> Tambah Kucing</a>
                         </div>
                     </div>
@@ -63,8 +44,9 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Kucing</th>
-                                            <th>Usia Kucing</th>
-                                            <th>Berat Kucing</th>
+                                            <th>Usia Kucing (bulan)</th>
+                                            <th>Berat Kucing (kg)</th>
+                                            <th>Porsi Makan (gr)</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -78,6 +60,7 @@
                                                 <td><?= $dc['cat_name'] ?></td>
                                                 <td><?= $dc['age'] ?></td>
                                                 <td><?= $dc['weight'] ?></td>
+                                                <td><?= $dc['porsi'] ?></td>
                                                 <td>
                                                     <center>
                                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?= $dc['id_cat'] ?>">
