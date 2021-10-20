@@ -14,6 +14,12 @@ class Login extends BaseController
 		$this->loginModel = new loginModel();
 		helper('form');
 	}
+
+	public function splash_screen()
+	{
+		return view('login/splash_screen');
+	}
+
 	public function index()
 	{
 		return view('login/index');
@@ -42,11 +48,11 @@ class Login extends BaseController
 				return redirect()->to(base_url('Home'));
 			} else {
 				$session->setFlashdata('gagal', 'Password Kamu Salah');
-				return redirect()->to('/');
+				return redirect()->to('Login');
 			}
 		} else {
 			$session->setFlashdata('gagal', 'Username Kamu Salah');
-			return redirect()->to('/');
+			return redirect()->to('Login');
 		}
 	}
 
@@ -55,7 +61,7 @@ class Login extends BaseController
 		$session = session();
 		$session->destroy();
 		session()->setFlashdata('sukses', 'Anda telah berhasil logout');
-		return redirect()->to(base_url('/'));
+		return redirect()->to(base_url('Login'));
 	}
 
 	// =============== REGISTER ==================
@@ -81,6 +87,6 @@ class Login extends BaseController
 		];
 		$this->loginModel->AddUser($kirimdata);
 		session()->setFlashData('sukses', 'Pendaftaran Berhasil!');
-		return redirect()->to('Home');
+		return redirect()->to('Login');
 	}
 }

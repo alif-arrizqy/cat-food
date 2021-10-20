@@ -11,7 +11,7 @@
 
 </head>
 
-<body id="main-container" class="default">
+<body id="main-container" class="default bg-primary">
     <div class="container">
         <!-- Content -->
     <?= $this->renderSection('content'); ?>
