@@ -15,6 +15,12 @@ class mainModel extends Model
     {
         $this->db->table('users')->where('id_user', $kirimdata['id_user'])->update($kirimdata);
     }
+
+    public function get_id_user($id_user)
+    {
+        $query = $this->db->query("SELECT * FROM users WHERE id_user = '$id_user'")->getResultArray();
+        return $query;
+    }
     
     public function MyCat($id_user)
     {

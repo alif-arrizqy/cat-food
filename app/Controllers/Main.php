@@ -51,6 +51,7 @@ class Main extends BaseController
 	public function my_cat($id_user)
 	{
 		$data_cat['data_cat'] = $this->mainModel->MyCat($id_user);
+		$data_cat['data_user'] = $this->mainModel->get_id_user($id_user);
 		return view('pages/my_cat', $data_cat);
 	}
 

@@ -83,7 +83,7 @@
 </main>
 
 <!-- Modal -->
-<?php foreach ($data_cat as $dc) { ?>
+<?php foreach ($data_user as $dc) { ?>
     <!-- Modal Add Cat -->
     <div id="addevent" class="modal fade" role="dialog">
         <div class="modal-dialog text-left">
