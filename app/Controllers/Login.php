@@ -57,4 +57,30 @@ class Login extends BaseController
 		session()->setFlashdata('sukses', 'Anda telah berhasil logout');
 		return redirect()->to(base_url('/'));
 	}
+
+	// =============== REGISTER ==================
+	public function register()
+	{
+		return view('register/index');
+	}
+
+	public function register_user()
+	{
+		$username = $this->request->getPost('username');
+		$password = $this->request->getPost('password');
+		$fullname = $this->request->getPost('fullname');
+		$email = $this->request->getPost('email');
+		$mobile = $this->request->getPost('mobile');
+
+		$kirimdata = [
+			'username' => $username,
+			'password' => $password,
+			'fullname' => $fullname,
+			'email' => $email,
+			'mobile' => $mobile,
+		];
+		$this->loginModel->AddUser($kirimdata);
+		session()->setFlashData('sukses', 'Pendaftaran Berhasil!');
+		return redirect()->to('Home');
+	}
 }

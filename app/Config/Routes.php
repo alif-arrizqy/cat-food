@@ -35,6 +35,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 $routes->get('Logout', 'Login::logout');
 
+// Register
+$routes->get('Register', 'Login::register');
+
 // User
 $routes->get('Home', 'Main::index', ['filter' => 'auth']);
 $routes->get('MyData', 'Main::my_data', ['filter' => 'auth']);

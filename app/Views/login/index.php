@@ -28,7 +28,7 @@
                 <div class="form-group mb-0">
                     <button class="btn btn-primary" type="submit"> Log In </button>
                 </div>
-                <!-- <div class="mt-2">Don't have an account? <a href="page-register.html">Create an Account</a></div> -->
+                <div class="mt-2">Belum punya akun? <a href="<?= base_url('Register') ?>"> Bikin yuk!</a></div>
             </div>
         </form>
     </div>
