@@ -43,7 +43,7 @@ class Main extends BaseController
 		];
 		$this->mainModel->EditUser($kirimdata);
 		session()->setFlashData('sukses', 'Data Berhasil Di Simpan');
-		return redirect()->to('MyData');
+		return redirect()->to($_SERVER['HTTP_REFERER']);
 	}
 
 
@@ -79,10 +79,10 @@ class Main extends BaseController
 		$success = $this->mainModel->CreateCatData($kirimdata);
 		if ($success) {
 			session()->setFlashdata('sukses', 'Data kucing kamu tersimpan!');
-			return redirect()->to('Home');
+			return redirect()->to($_SERVER['HTTP_REFERER']);
 		} else {
 			session()->setFlashdata('gagal', 'Data kucing kamu gagal tersimpan!');
-			return redirect()->to('Home');
+			return redirect()->to($_SERVER['HTTP_REFERER']);
 		}
 	}
 
