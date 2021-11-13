@@ -25,7 +25,7 @@
                         <div class="card-content">
                             <div class="card-body p-4 text-center">
                                 <div class="my-auto">
-                                    <iframe width="100%" height="400" src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+                                    <iframe width="100%" height="400" src="http://192.168.100.49/" frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>

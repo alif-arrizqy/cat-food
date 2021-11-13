@@ -39,6 +39,7 @@
                     </div>
                 </div>
             </div>
+            <?php $id_user = session()->get('id_user') ?>
             <div class="col-md-6 col-lg-6 mt-3">
                 <div class="card overflow-hidden">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -50,7 +51,7 @@
                                 <img class="card-img-center rounded-0" src="<?= base_url('public/dist/images/pet-bowl.png') ?>">
                             </div>
                             <div class="content my-3">
-                                <a href="<?= base_url('OpenCamera') ?>">
+                                <a href="<?= base_url('MyCat' . '/' . $id_user) ?>">
                                     <button type="button" class="btn btn-success">Kasih Makan Sekarang</button>
                                 </a>
                             </div>
