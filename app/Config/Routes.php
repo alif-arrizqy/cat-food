@@ -43,6 +43,7 @@ $routes->get('Home', 'Main::index', ['filter' => 'auth']);
 $routes->get('MyData', 'Main::my_data', ['filter' => 'auth']);
 $routes->get('MyCat/(:segment)', 'Main::my_cat/$1', ['filter' => 'auth']);
 $routes->get('OpenCamera', 'Main::camera', ['filter' => 'auth']);
+$routes->get('BeriMakan/(:segment)', 'Restapi::kasih_makan/$1');
 
 /*
  * --------------------------------------------------------------------

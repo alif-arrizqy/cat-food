@@ -47,6 +47,7 @@
                                             <th>Usia Kucing (bulan)</th>
                                             <th>Berat Kucing (kg)</th>
                                             <th>Porsi Makan (gr)</th>
+                                            <th>Kasih Makan</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -63,7 +64,16 @@
                                                 <td><?= $dc['porsi'] ?></td>
                                                 <td>
                                                     <center>
-                                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?= $dc['id_cat'] ?>">
+                                                        <a href="<?= base_url('BeriMakan' . '/' . $dc['id_cat']) ?>">
+                                                            <!-- <input type="button" class="btn btn-info" title="Kasih Makan"> -->
+                                                            <i class="fas fa-cat"></i>
+                                                            </input>
+                                                        </a>
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <button type="button" class="btn btn-success" title="Edit Data" data-toggle="modal" data-target="#editModal<?= $dc['id_cat'] ?>">
                                                             <i class="fa fa-edit"></i>
                                                         </button>
                                                     </center>
@@ -83,8 +93,8 @@
 </main>
 
 <!-- Modal -->
+<!-- Modal Add Cat -->
 <?php foreach ($data_user as $dc) { ?>
-    <!-- Modal Add Cat -->
     <div id="addevent" class="modal fade" role="dialog">
         <div class="modal-dialog text-left">
             <!-- Modal content-->
@@ -131,12 +141,12 @@
             </div>
         </div>
     </div>
-    <!-- End of Modal Add Cat -->
 <?php } ?>
-<?php
-foreach ($data_cat as $dc) {
+<!-- End of Modal Add Cat -->
+
+<!-- Modal Edit Cat -->
+<?php foreach ($data_cat as $dc) {
 ?>
-    <!-- Modal Edit Cat -->
     <div class="modal fade" id="exampleModal<?= $dc['id_cat'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -173,6 +183,33 @@ foreach ($data_cat as $dc) {
             </div>
         </div>
     </div>
-    <!-- End of Modal Edit Cat -->
+<?php } ?>
+<!-- End of Edit Cat -->
+
+<!-- Kasih Makan -->
+<?php foreach ($data_cat as $dc) {
+?>
+    <div class="modal fade" id="makanModal<?= $dc['id_cat'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Kasih Makan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php echo form_open('BeriMakan' . '/' . $dc['id_cat']) ?>
+                <div class="modal-body">
+                    <p>Kasih Makan Sekarang ? </p>
+                    <input class="form-control" type="hidden" name="id_kucing" required="" value="<?= $dc['id_cat'] ?>">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Kasih Makan</button>
+                </div>
+                <?php echo form_close() ?>
+            </div>
+        </div>
+    </div>
 <?php } ?>
 <?= $this->endSection(); ?>

@@ -33,4 +33,10 @@ class mainModel extends Model
         $query = $this->db->table('cats')->insert($kirimdata);
         return $query;
     }
+
+    public function findPorsiMakan($id_cat)
+    {
+        $query = $this->db->query("SELECT * FROM cats WHERE id_cat = '$id_cat'");
+        return $query;
+    }
 }
