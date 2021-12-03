@@ -68,7 +68,7 @@ class Main extends BaseController
 		$csvFileName = base_url('public/dist/Dataset/train.csv'); 
 		$predict = [$weight, $age]; //predict [weight, age] {required}
 		$key = 3; //key {optional: default is 3}
-		// $inputToCsv = false; //true, so the result will be inputed to csv file as the new sample. {optional: default is false}
+		$inputToCsv = false; //true, so the result will be inputed to csv file as the new sample. {optional: default is false}
 
 		// membuat objek baru dari library KNN
 		$data = new KnnCsv($csvFileName, $predict, $key, $inputToCsv);

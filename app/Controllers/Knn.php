@@ -105,7 +105,7 @@ class Knn
         }
 
         $counted = array_count_values($finalResult);
-        $final = array_keys($counted, max($counted));
+        $final = array_keys($counted, min($counted));
         return $final[0];
     }
 
