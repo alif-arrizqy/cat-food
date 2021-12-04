@@ -28,13 +28,18 @@
                 <div class="col-12 col-md-12 mt-3">
                     <div class="card">
                         <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
-                            <div class="alert alert-warning">
+                            <div class="alert alert-danger">
                                 <?php echo session()->getFlashdata('gagal') ?>
                             </div>
                         <?php } ?>
                         <?php if (!empty(session()->getFlashdata('sukses'))) { ?>
                             <div class="alert alert-success">
                                 <?php echo session()->getFlashdata('sukses') ?>
+                            </div>
+                        <?php } ?>
+                        <?php if (!empty(session()->getFlashdata('hapus'))) { ?>
+                            <div class="alert alert-success">
+                                <?php echo session()->getFlashdata('hapus') ?>
                             </div>
                         <?php } ?>
                         <div class="card-body">
@@ -64,18 +69,26 @@
                                                 <td><?= $dc['porsi'] ?></td>
                                                 <td>
                                                     <center>
-                                                        <a href="<?= base_url('BeriMakan' . '/' . $dc['id_cat']) ?>">
-                                                            <!-- <input type="button" class="btn btn-info" title="Kasih Makan"> -->
+                                                        <!-- buat di restapi - esp -->
+                                                        <!-- <a href="<?= base_url('BeriMakan' . '/' . $dc['id_cat']) ?>">
+                                                            <input type="button" class="btn btn-info" title="Kasih Makan">
                                                             <i class="fas fa-cat"></i>
                                                             </input>
-                                                        </a>
+                                                        </a> -->
+                                                        <!-- buat di aplikasi -->
+                                                        <button type="button" class="btn btn-primary" title="Kasih Makan" data-toggle="modal" data-target="#makanModal<?= $dc['id_cat'] ?>">
+                                                            <i class="fa fa-cat"></i>
+                                                        </button>
                                                     </center>
                                                 </td>
                                                 <td>
                                                     <center>
-                                                        <button type="button" class="btn btn-success" title="Edit Data" data-toggle="modal" data-target="#editModal<?= $dc['id_cat'] ?>">
-                                                            <i class="fa fa-edit"></i>
+                                                        <button type="button" class="btn btn-warning" title="Hapus Data" data-toggle="modal" data-target="#hapusModal<?= $dc['id_cat'] ?>">
+                                                            <i class="fa fa-trash"></i>
                                                         </button>
+                                                        <!-- <button type="button" class="btn btn-success" title="Edit Data" data-toggle="modal" data-target="#editModal<?= $dc['id_cat'] ?>">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button> -->
                                                     </center>
                                                 </td>
                                             </tr>
@@ -198,14 +211,40 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <?php echo form_open('BeriMakan' . '/' . $dc['id_cat']) ?>
-                <div class="modal-body">
+                <?php echo form_open('/main/kasih_makan/' . $dc['id_user']) ?>
+                <!-- <div class="modal-body">
                     <p>Kasih Makan Sekarang ? </p>
                     <input class="form-control" type="hidden" name="id_kucing" required="" value="<?= $dc['id_cat'] ?>">
-                </div>
+                </div> -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Kasih Makan</button>
+                </div>
+                <?php echo form_close() ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+<!-- Hapus data -->
+<?php foreach ($data_cat as $dc) {
+?>
+    <div class="modal fade" id="hapusModal<?= $dc['id_cat'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php echo form_open('/main/hapus_kucing' . '/' . $dc['id_cat'] . '/' . $dc['id_user']) ?>
+                <!-- <div class="modal-body">
+                    <p>Hapus Data Kucing ? </p>
+                    <input class="form-control" type="hidden" name="id_kucing" required="" value="<?= $dc['id_cat'] ?>">
+                </div> -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
                 </div>
                 <?php echo form_close() ?>
             </div>

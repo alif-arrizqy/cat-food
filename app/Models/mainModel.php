@@ -39,4 +39,10 @@ class mainModel extends Model
         $query = $this->db->query("SELECT * FROM cats WHERE id_cat = '$id_cat'");
         return $query;
     }
+    
+    public function DeleteCat($id_cat)
+    {
+        $query = $this->db->query("DELETE FROM cats WHERE id_cat = '$id_cat'");
+        return $query;
+    }
 }

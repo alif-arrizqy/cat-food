@@ -95,4 +95,17 @@ class Main extends BaseController
 	{
 		return view('pages/camera');
 	}
+
+	public function hapus_kucing($id_cat, $id_user)
+	{
+		$this->mainModel->DeleteCat($id_cat);
+		session()->setFlashData('hapus', 'Data berhasil dihapus');
+		return redirect()->to('MyCat/'.$id_user);
+	}
+
+	public function kasih_makan($id_user)
+	{
+		session()->setFlashData('sukses', 'Porsi Makanan Kucing Sudah Terkirim');
+		return redirect()->to('MyCat/'.$id_user);
+	}
 }
